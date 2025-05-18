@@ -5,9 +5,27 @@ body {
     background-color: #f4f4f4;
 }
 
-header {
-    background: #333;
+.button {
+    border: none;
     color: white;
-    padding: 10px;
+    padding: 15px 32px;
     text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button1 {background-color: #4CAF50;} /* Green */
+header {
+    display: block;
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
 }
