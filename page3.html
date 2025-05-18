@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Games Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .game-link {
+            margin: 15px;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .game-link:hover {
+            background-color: #0056b3;
+        }
+        .home-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .home-button:hover{
+            background-color: #218838
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Games Hub</h1>
+    <nav>
+        <a href="pong.html" class="game-link">Play Pong</a>
+        <a href="runner.html" class="game-link">Play Infinite 2D Runner</a>
+        <a href="snake.html" class="game-link">Play Snake</a>
+        <a href="breakout.html" class="game-link">Play Breakout</a>
+        <a href="tictactoe.html" class="game-link">Play Tic Tac Toe</a>
+    </nav>
+    <button onclick="location.href='index.html'" class="home-button">Home</button>
+</body>
+</html>
