@@ -3,33 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
     <link rel="stylesheet" href="styles.css">
+    <title>My Programming Portfolio</title>
+    <style>
+        body {
+            background-color: darkgoldenrod;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button1 {background-color: #4CAF50;}
+
+        .button1:hover {background-color: #388e3c;}
+
+        header {
+            display: block;
+        }
+
+        h1 {
+            text-align: center;
+            color: #FF8900;
+            margin: 0.67em 0;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Welcome to My Programming Portfolio</h1>
     </header>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Experienced developer skilled in JavaScript, Python, C#, HTML, </p>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Check out my latest projects on <a href="https://github.com/PatrickMcAdam1121">GitHub</a>.</p>
-        <p>Check out my latest projects on <a href="https://replit.com/@patrickm31">Replit</a>.</p>
-    </section>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Experienced developer skilled in JavaScript, Python, C#, HTML, blender, unity, block coding, shader graph nodes, and java</p>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <p>Check out my latest projects on GitHub</p>
+            <iframe src="https://github.com/PatrickMcAdam1121" style="border:2px dotted blue;" title="github"></iframe>
+        </section>
+        <section id="projects">
+            <h2>AI</h2>
+            <p>Check out my latest AI projects on GitHub</p>
+            <iframe src="https://github.com/PatrickMcAdam1121" style="border:2px dotted blue;" title="github"></iframe>
+        </section>
+        <section id="navigation">
+            <h2>Navigation</h2>
+            <button class="button button1" onclick="location.href='page2.html'">AI Chatbot</button>
+            <button class="button button1" onclick="location.href='page3.html'">Games</button>
+        </section>
+    </main>
     <footer>
         <p>Contact me at: <a href="mailto:Pmcadam1121@gmail.com">Pmcadam1121@gmail.com</a></p>
     </footer>
 </body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Programming Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
 </html>
