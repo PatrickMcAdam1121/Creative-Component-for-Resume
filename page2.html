@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chatbot</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            height: 100vh;
+        }
+        .side-panel {
+            width: 250px;
+            background-color: #ffffff;
+            border-right: 2px solid #e0e0e0;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+        }
+        .chat-box {
+            flex-grow: 1;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+        }
+        .messages {
+            overflow-y: auto;
+            flex-grow: 1;
+            padding: 15px;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            line-height: 1.4;
+        }
+        .user-message {
+            background-color: #e3f2fd;
+            text-align: right;
+            align-self: flex-end;
+        }
+        .bot-message {
+            background-color: #ffebee;
+            text-align: left;
+            align-self: flex-start;
+        }
+        input[type="text"] {
+            border: none;
+            padding: 10px;
+            font-size: 14px;
+            width: 100%;
+            box-sizing: border-box;
+            border-top: 1px solid #ddd;
+        }
+        button {
+            padding: 10px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .previous-chats {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        .chat-title {
+            font-size: 14px;
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .new-ai-btn {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="side-panel">
+        <button onclick="location.href='index.html'" class="home-button">Home</button>
+        <button onclick="" class="home-button">
+        <div class="previous-chats" id="previousChats">
+            <div class="chat-title">Chat 1</div>
+            <div class="chat-title">Chat 2</div>
+        </div>
+        <button class="new-ai-btn" onclick="createNewAI()">Create New AI</button>
+    </div>
+    <div class="chat-box">
+        <div class="header">
+            <span>AI Chatbot</span>
+        </div>
+        <div class="messages" id="messageDisplay"></div>
+        <input type="text" id="userInput" placeholder="Type your message here..." autofocus>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const messageDisplay = document.getElementById('messageDisplay');
+            const userMessage = userInput.value.trim();
+            if (!userMessage) return;
+            displayMessage(userMessage, 'user-message');
+            userInput.value = '';
+            try {
+                const serverUrl = window.location.origin;
+                const response = await fetch(serverUrl + '/chat', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({message: userMessage})
+                });
+                if (!response.ok) {
+                    throw new Error(`Server responded with a status: ${response.status}`);
+                }
+                const data = await response.json();
+                displayMessage(data.reply, 'bot-message');
+            } catch (error) {
+                console.error('Error:', error);
+                displayMessage("An error occurred. Unable to reach the server. Please try again later.", 'bot-message');
+            }
+        }
+
+        function displayMessage(message, className) {
+            const messageDisplay = document.getElementById('messageDisplay');
+            const newMessage = document.createElement('div');
+            newMessage.className = 'message ' + className;
+            newMessage.textContent = message;
+            messageDisplay.appendChild(newMessage);
+            messageDisplay.scrollTop = messageDisplay.scrollHeight;
+        }
+
+        function createNewAI() {
+            alert('New AI feature coming soon!');
+        }
+    </script>
+</body>
+</html>
